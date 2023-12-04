@@ -5,7 +5,7 @@ let arrayProductos = [];
 const addProd = (id, nombre, precio) => {
     const newProd = { id, nombre, precio };
     arrayProductos.push(newProd);
-    console.log(`Se agrego un nuevo producto:${id} - ${nombre} -${precio}`);
+    console.log(`Se agrego un nuevo producto:${id} - ${nombre} - ${precio}`);
 };
 
 // Función buscar productos
@@ -15,7 +15,7 @@ const findProd = (id) => {
     if (buscarProd) {
         return buscarProd;
     } else {
-        return "No se encontró el producto";
+        console.log("No se encontró el producto");
     }
 };
 
@@ -29,7 +29,7 @@ const actProd = (id, actNombre, actPrice) => {
             `Producto actualizado: ${actNombre}, Nuevo precio: ${actPrice}`
         );
     } else {
-        console.log(`Producto con ID ${id} no encontrado.`);
+        console.log("No se encontró el producto");
     }
 };
 
@@ -42,7 +42,7 @@ const deleteProd = (id) => {
         const productoEliminado = arrayProductos.splice(idDeleteProd, 1)[0];
         console.log(`Producto eliminado: ${productoEliminado.nombre}`);
     } else {
-        console.log(`Producto con ID ${id} no encontrado.`);
+        cconsole.log("No se encontró el producto");
     }
 };
 
@@ -54,3 +54,5 @@ addProd(3, "Zanahoria", 4000);
 deleteProd(2);
 
 console.log(arrayProductos);
+
+findProd(5);
