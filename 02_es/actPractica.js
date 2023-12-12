@@ -37,6 +37,7 @@ class EventManager {
     readById(id) {
         return EventManager.events.find((each) => each.id === Number(id));
     }
+
     soldTicket(quantity, eventId) {
         const event = this.readById(eventId); //guardo el evento a modificar (al vender entradas tengo que disminuir la capacidad)
         event.capacity = event.capacity - quantity;
