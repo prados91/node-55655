@@ -1,28 +1,31 @@
 let cuenta = 0;
 
 function contador(numero) {
-  cuenta += numero;
-
-  console.log(cuenta);
+  cuenta = cuenta + numero;
+  //console.log(cuenta);
 }
 
 contador(2);
 contador(5);
 contador(10);
 
-const concatenar = (tercera, cuarta) => {
-  let primera = "Hola";
-  let segunda = "Mundo";
-
-  console.log(primera, segunda, tercera, cuarta);
+const imprimir = palabra => console.log(palabra);
+const concatenar = (tercera,cuarta) => {
+  let primera = "hola";
+  let segunda = "mundo";
+  //console.log(primera, segunda, tercera, cuarta);
+  //console.log(primera + " " + segunda + " " + tercera + " " + cuarta);
+  //console.log(`${primera} ${segunda} ${tercera} ${cuarta}`);
 };
 
-concatenar("soy", "Augusto");
+imprimir("hola mundo!")
+concatenar("soy","igna");
 
-const array = ["a", "b", "c"];
+function corroborar(arreglo) {
+  const tiposDeDato = arreglo.map(cadaUno=>({ valor: cadaUno, tipoDeDato: typeof cadaUno }))
+  console.log(tiposDeDato);
+  return tiposDeDato
+}
 
-const corroborar = (array) => {
-  const tipsoDeDato = array.map((each) => ({ valor: each, tipo: typeof each }));
-  console.log(tipsoDeDato);
-  return tipsoDeDato;
-};
+const resultado = corroborar([1,"hola",null,false])
+corroborar([NaN,true,imprimir,resultado])

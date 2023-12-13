@@ -1,32 +1,45 @@
 class Persona {
-    static cantidadDePersonas = 0;
-    static admin = "Coder";
-    constructor(nombre, apellido, edad, ciudadNacimiento) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.edad = edad;
-        this.ciudadNacimiento = ciudadNacimiento;
-        //this.agregarPersona();
-    }
-    imprimir() {
-        console.log(this);
-    }
-    printName = () => {
-        console.log(this.nombre, this.apellido);
-    };
-    static agregarPersona = () => {
-        Persona.cantidadDePersonas = Persona.cantidadDePersonas + 1;
-    };
-    static getResponsable = () => {
-        console.log(Persona.admin);
-    };
+  static cantidadDePersonas = 0;
+  static admin = "coderhouse";
+  constructor(nombre, apellido, edad, ciudad) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.edad = edad;
+    this.ciudad = ciudad;
+    Persona.agregarAlContador();
+    this.ordenDeRegistro = Persona.cantidadDePersonas;
+  }
+  imprimir() {
+    console.log(this);
+  }
+  imprimirNombreCompleto = () => console.log(this.nombre, this.apellido);
+  static agregarAlContador() {
+    Persona.cantidadDePersonas++;
+  }
+  static conocerAdmin = () => console.log(Persona.admin);
 }
 
-const alumno = new Persona("augusto", "prados", 31, "pergamino");
+const profe = new Persona("igna", "borraz", 33, "rosario");
+profe.imprimir();
+profe.imprimirNombreCompleto();
+console.log(profe.edad);
 
-alumno.imprimir();
-console.log(alumno.edad);
-alumno.printName();
-Persona.agregarPersona();
+const tutor = new Persona("german", "koning", 30, "cordoba");
+tutor.imprimir();
+tutor.imprimirNombreCompleto();
 
-Persona.getResponsable();
+//para acceder a propiedades de la instancia de la clase
+console.log(tutor.ciudad);
+
+//para acceder a propiedades estaticas o de la clase
+console.log(Persona.cantidadDePersonas);
+
+Persona.agregarAlContador();
+Persona.agregarAlContador();
+Persona.agregarAlContador();
+
+console.log(Persona.cantidadDePersonas);
+Persona.conocerAdmin();
+
+console.log(profe.ordenDeRegistro);
+console.log(tutor.ordenDeRegistro);
